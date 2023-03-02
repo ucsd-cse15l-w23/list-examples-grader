@@ -13,15 +13,14 @@ else
 fi
 cd ..
 cp -r lib student-submission
+cp TestListExamples.java student-submission
 cd student-submission
 javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java 2> javac-errors.txt
-
+echo $?
 if [[ $? -ne 0 ]]
 then
     echo javac-errors.txt
 fi
 
-
 java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples
-
 echo 'Finished cloning'
